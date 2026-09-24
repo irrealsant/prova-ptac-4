@@ -5,18 +5,19 @@
 }
 
 .page-header {
-  background: #1b1e26;
+  background: #ffffff;
   padding: 1.5rem 2rem;
-  border-bottom: 1px solid #2a2e38;
+  border-bottom: 1px solid #ece3d1;
 }
 
 .page-header h1 {
   font-size: 1.5rem;
+  color: #3d372c;
 }
 
 .page-header p {
   margin: 0.25rem 0 0;
-  color: #9aa0ab;
+  color: #a3987d;
   font-size: 0.9rem;
 }
 
@@ -40,8 +41,8 @@
 
 .form-panel,
 .notice-card {
-  background: #1b1e26;
-  border: 1px solid #2a2e38;
+  background: #ffffff;
+  border: 1px solid #ece3d1;
   border-radius: 6px;
   padding: 1.25rem;
 }
@@ -64,7 +65,7 @@
 
 .form-panel label {
   font-size: 0.85rem;
-  color: #9aa0ab;
+  color: #a3987d;
   margin: 0.9rem 0 0.35rem;
 }
 
@@ -76,22 +77,22 @@
 .form-panel textarea {
   font: inherit;
   padding: 0.55rem 0.65rem;
-  border: 1px solid #2a2e38;
+  border: 1px solid #ece3d1;
   border-radius: 4px;
-  background: #14161c;
-  color: #e4e6eb;
+  background: #faf6ec;
+  color: #3d372c;
   resize: vertical;
 }
 
 .form-panel input:focus,
 .form-panel textarea:focus {
-  outline: 2px solid #5b7cfa;
+  outline: 2px solid #b89f6f;
 }
 
 .form-error {
   margin: 0.75rem 0 0;
   font-size: 0.85rem;
-  color: #f27272;
+  color: #b3543f;
 }
 
 .form-actions {
@@ -107,7 +108,7 @@
   padding: 0.55rem 1rem;
   border-radius: 4px;
   cursor: pointer;
-  border: 1px solid #2a2e38;
+  border: 1px solid #ece3d1;
 }
 
 .btn:disabled {
@@ -116,20 +117,20 @@
 }
 
 .btn-primary {
-  background: #5b7cfa;
-  color: #fff;
-  border-color: #5b7cfa;
+  background: #b89f6f;
+  color: #ffffff;
+  border-color: #b89f6f;
   flex: 1;
 }
 
 .btn-secondary {
   background: transparent;
-  color: #e4e6eb;
+  color: #3d372c;
 }
 
 .btn-danger {
   background: transparent;
-  color: #f27272;
+  color: #b3543f;
 }
 
 .notice-grid {
@@ -141,11 +142,12 @@
 .notice-card h3 {
   font-size: 1rem;
   margin-bottom: 0.35rem;
+  color: #3d372c;
 }
 
 .notice-body {
   margin: 0 0 0.65rem;
-  color: #c4c8d1;
+  color: #5c5342;
   line-height: 1.5;
   white-space: pre-wrap;
 }
@@ -153,7 +155,7 @@
 .notice-meta {
   margin: 0 0 0.75rem;
   font-size: 0.75rem;
-  color: #6f7580;
+  color: #b3a688;
 }
 
 .card-actions {
@@ -162,12 +164,12 @@
 }
 
 .empty-message {
-  background: #1b1e26;
-  border: 1px dashed #2a2e38;
+  background: #ffffff;
+  border: 1px dashed #ece3d1;
   border-radius: 6px;
   padding: 1.25rem;
   text-align: center;
-  color: #9aa0ab;
+  color: #a3987d;
 }
 
 .loading-message {
@@ -175,15 +177,15 @@
   align-items: center;
   gap: 0.55rem;
   margin-top: 0.9rem;
-  color: #9aa0ab;
+  color: #a3987d;
   font-size: 0.85rem;
 }
 
 .spinner {
   width: 13px;
   height: 13px;
-  border: 2px solid #2a2e38;
-  border-top-color: #5b7cfa;
+  border: 2px solid #ece3d1;
+  border-top-color: #b89f6f;
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
 }
@@ -196,9 +198,9 @@
 
 .error-message {
   margin-top: 0.9rem;
-  background: #2a1a1a;
-  border: 1px solid #4a2626;
-  color: #f27272;
+  background: #f7e6e0;
+  border: 1px solid #e0bcae;
+  color: #b3543f;
   padding: 0.75rem 0.9rem;
   border-radius: 6px;
   font-size: 0.85rem;
@@ -208,6 +210,6 @@
   text-align: center;
   padding: 1rem;
   font-size: 0.75rem;
-  color: #6f7580;
-  border-top: 1px solid #2a2e38;
+  color: #a3987d;
+  border-top: 1px solid #ece3d1;
 }

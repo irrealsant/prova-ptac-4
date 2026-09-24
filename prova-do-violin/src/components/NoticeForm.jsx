@@ -60,7 +60,7 @@ export default function NoticeForm({
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder="Ex.: Prova de PTAC4 na semana 8"
+          placeholder="Insira seu título"
           disabled={submitting}
         />
 

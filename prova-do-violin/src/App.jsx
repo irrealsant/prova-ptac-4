@@ -119,7 +119,7 @@ export default function App() {
     <div className="page">
       <header className="page-header">
         <h1>Mural de Avisos</h1>
-        <p>Projeto P2 — PTAC4 · avisos e recados da turma</p>
+        <p>MinMural - o mural de avisos da mesma empresa da minstore (meu outro projeto)</p>
       </header>
 
       <main className="page-content">
