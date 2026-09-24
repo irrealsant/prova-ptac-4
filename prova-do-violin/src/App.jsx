@@ -14,6 +14,7 @@ export default function App() {
   const [editingNotice, setEditingNotice] = useState(null)
   const [submitting, setSubmitting] = useState(false)
   const [deletingId, setDeletingId] = useState(null)
+  const [formError, setFormError] = useState(null)
 
   useEffect(() => {
     const controller = new AbortController()
@@ -42,7 +43,7 @@ export default function App() {
 
   async function createNotice({ title, body }) {
     setSubmitting(true)
-    setLoadError(null)
+    setFormError(null)
     try {
       const response = await fetch(`${API_BASE}/posts`, {
         method: 'POST',
@@ -62,7 +63,8 @@ export default function App() {
 
       setNotices((current) => [newNotice, ...current])
     } catch (err) {
-      setLoadError('Não foi possível publicar o aviso (Network Error). Tente novamente.')
+      console.error('createNotice failed:', err)
+      setFormError('Não foi possível publicar o aviso (Network Error). Tente novamente.')
     } finally {
       setSubmitting(false)
     }
@@ -70,21 +72,25 @@ export default function App() {
 
   async function updateNotice(updatedNotice) {
     setSubmitting(true)
-    setLoadError(null)
+    setFormError(null)
     try {
       const response = await fetch(`${API_BASE}/posts/${updatedNotice.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedNotice),
       })
-      if (!response.ok) throw new Error(`status ${response.status}`)
+
+      if (!response.ok) {
+        console.warn(`PUT /posts/${updatedNotice.id} returned status ${response.status}. A API fake não conhece ids criados localmente, então o card é atualizado mesmo assim.`)
+      }
 
       setNotices((current) =>
         current.map((notice) => (notice.id === updatedNotice.id ? updatedNotice : notice))
       )
       setEditingNotice(null)
     } catch (err) {
-      setLoadError('Não foi possível salvar as alterações (Network Error). Tente novamente.')
+      console.error('updateNotice failed:', err)
+      setFormError('Não foi possível salvar as alterações (Network Error). Tente novamente.')
     } finally {
       setSubmitting(false)
     }
@@ -102,6 +108,7 @@ export default function App() {
       })
       if (!response.ok) throw new Error(`status ${response.status}`)
     } catch (err) {
+      console.error('deleteNotice failed:', err)
       setNotices((current) => {
         const position = current.findIndex((item) => item.id > notice.id)
         if (position === -1) return [...current, notice]
@@ -119,7 +126,7 @@ export default function App() {
     <div className="page">
       <header className="page-header">
         <h1>Mural de Avisos</h1>
-        <p>MinMural - o mural de avisos da mesma empresa da minstore (meu outro projeto)</p>
+        <p>Projeto P2 — PTAC4 · avisos e recados da turma</p>
       </header>
 
       <main className="page-content">
@@ -127,15 +134,22 @@ export default function App() {
           editingNotice={editingNotice}
           onCreate={createNotice}
           onUpdate={updateNotice}
-          onCancelEdit={() => setEditingNotice(null)}
+          onCancelEdit={() => {
+            setEditingNotice(null)
+            setFormError(null)
+          }}
           submitting={submitting}
+          submitError={formError}
         />
 
         <NoticeList
           notices={notices}
           loading={loadingInitial}
           error={loadError}
-          onEdit={setEditingNotice}
+          onEdit={(notice) => {
+            setEditingNotice(notice)
+            setFormError(null)
+          }}
           onDelete={deleteNotice}
           deletingId={deletingId}
         />

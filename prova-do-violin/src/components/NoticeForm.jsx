@@ -6,6 +6,7 @@ export default function NoticeForm({
   onUpdate,
   onCancelEdit,
   submitting,
+  submitError,
 }) {
   const [title, setTitle] = useState('')
   const [body, setBody] = useState('')
@@ -60,7 +61,7 @@ export default function NoticeForm({
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder="Insira seu título"
+          placeholder="Ex.: Prova de PTAC4 na semana 8"
           disabled={submitting}
         />
 
@@ -75,6 +76,7 @@ export default function NoticeForm({
         />
 
         {error && <p className="form-error">{error}</p>}
+        {submitError && <p className="form-error">{submitError}</p>}
 
         <div className="form-actions">
           <button type="submit" className="btn btn-primary" disabled={submitting}>
